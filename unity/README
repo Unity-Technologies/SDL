@@ -1,0 +1,9 @@
+Doing a new source deployment:
+* configure and build locally
+* verify that sources.list is up to date
+* run deploy.sh
+* copy the contents of the deploy directory into External/SDL2 in your unity clone
+* verify linux player build
+
+Deploying for a new platform:
+* coordinate with Levi :-)
