@@ -63,6 +63,7 @@ src/render/SDL_d3dmath.c
 src/render/SDL_render.c
 src/render/SDL_yuv_mmx.c
 src/render/SDL_yuv_sw.c
+src/render/mmx.h
 src/render/opengl/SDL_glfuncs.h
 src/render/opengl/SDL_render_gl.c
 src/render/opengl/SDL_shaders_gl.c
