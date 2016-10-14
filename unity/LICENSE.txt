@@ -1,0 +1,11 @@
+This is is a modified version of SDL2.  It is not the original software and it
+should not be interpreted as such.
+
+At the time of this writing:
+
+    - The original software can be found on https://www.libsdl.org/
+    - Unity's version is hosted at https://bitbucket.org/Unity-Technologies/sdl
+
+The license from the original distribution of SDL can be found below.
+
+===============================================================================
