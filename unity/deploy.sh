@@ -44,6 +44,10 @@ for source in `cat "${SCRIPT_DIR}/sources.list"`; do
 	fi
 done
 
+# Write license information
+cp "${SDL_BASE}/unity/LICENSE.txt" "${DEPLOY}"
+cat "${SDL_BASE}/COPYING.txt" >> "${DEPLOY}/LICENSE.txt"
+
 # Generate jamfiles
 echo "Generating jamfiles"
 SOURCES=`cat "${SCRIPT_DIR}/sources.list"`
