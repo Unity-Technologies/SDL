@@ -1,5 +1,5 @@
 Doing a new source deployment:
-* configure (with --disable-audio --disable-shared --disable-dbus) and build locally
+* configure (with --disable-audio --disable-shared --disable-dbus --disable-video-wayland --disable-video-mir) and build locally
 * verify that sources.list is up to date
 * run deploy.sh
 * copy the contents of the deploy directory into External/SDL2 in your unity clone
