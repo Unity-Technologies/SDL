@@ -16,6 +16,13 @@ fi
 rm -rf "${DEPLOY}"
 mkdir -p "${DEPLOY}"
 
+# Extra files for wayland backend
+cp unity/wayland/*.h "${SDL_BASE}/include"
+cp -R unity/wayland/xkbcommon "${SDL_BASE}/include"
+cp -R unity/wayland/EGL "${SDL_BASE}/include"
+cp unity/wayland/generated/*.h "${SDL_BASE}/include"
+cp unity/wayland/generated/*.c "${SDL_BASE}/src"
+
 # Copy includes
 echo "Deploying includes"
 cp -R "${SDL_BASE}/include" "${DEPLOY}/"

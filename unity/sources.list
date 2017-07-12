@@ -158,4 +158,7 @@ src/core/linux/SDL_ime.c
 src/core/linux/SDL_fcitx.h
 src/core/linux/SDL_fcitx.c
 src/core/linux/SDL_ibus.h
+src/pointer-constraints-unstable-v1-protocol.c
+src/relative-pointer-unstable-v1-protocol.c
+src/wayland-protocol.c
 
