@@ -7,7 +7,6 @@ src/SDL_internal.h
 src/atomic/SDL_atomic.c
 src/atomic/SDL_spinlock.c
 src/audio/SDL_sysaudio.h
-src/audio/SDL_audiomem.h
 src/audio/SDL_audio.c
 src/audio/SDL_audiocvt.c
 src/audio/SDL_audiodev.c
@@ -21,6 +20,7 @@ src/dynapi/SDL_dynapi_overrides.h
 src/events/default_cursor.h
 src/events/SDL_sysevents.h
 src/events/scancodes_xfree86.h
+src/events/scancodes_linux.h
 src/events/scancodes_darwin.h
 src/events/SDL_clipboardevents.c
 src/events/SDL_dropevents.c
@@ -153,5 +153,9 @@ src/timer/unix/SDL_systimer.c
 src/core/linux/SDL_evdev.c
 src/core/linux/SDL_udev.c
 src/core/linux/SDL_dbus.h
+src/core/linux/SDL_ime.h
+src/core/linux/SDL_ime.c
+src/core/linux/SDL_fcitx.h
+src/core/linux/SDL_fcitx.c
 src/core/linux/SDL_ibus.h
 
