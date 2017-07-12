@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 SCRIPT_DIR="`readlink -f $(dirname $0)`"
 SDL_BASE="`readlink -f ${SCRIPT_DIR}/..`"
@@ -50,8 +50,30 @@ cat "${SDL_BASE}/COPYING.txt" >> "${DEPLOY}/LICENSE.txt"
 
 # Generate jamfiles
 echo "Generating jamfiles"
-SOURCES=`cat "${SCRIPT_DIR}/sources.list"`
-JAMFILE="${DEPLOY}/SDL2_sources.jam"
-echo "SDL_SOURCES =" > "${JAMFILE}"
-echo "${SOURCES}" >> "${JAMFILE}"
-echo ';' >> "${JAMFILE}"
+
+# Strip trailing newline, indent/quote/comma-separate
+SOURCES=`head -n -1 "${SCRIPT_DIR}/sources.list" | sed 's/.*/                "&",/'`
+
+JAMFILE="${DEPLOY}/SDL2_sources.jam.cs"
+echo '' > "${JAMFILE}"
+echo 'using JamSharp.Runtime;' >> "${JAMFILE}"
+echo 'using static JamSharp.Runtime.BuiltinRules;' >> "${JAMFILE}"
+echo 'using External.Jamplus.builds.bin.modules;' >> "${JAMFILE}"
+echo 'using External.Jamplus.builds.bin;' >> "${JAMFILE}"
+echo '' >> "${JAMFILE}"
+echo 'namespace External.SDL2' >> "${JAMFILE}"
+echo '{' >> "${JAMFILE}"
+echo '    [OriginalJamFile("External/SDL2/SDL2_sources.jam")]' >> "${JAMFILE}"
+echo '    class SDL2_sources : ConvertedJamFile' >> "${JAMFILE}"
+echo '    {' >> "${JAMFILE}"
+echo '        internal static void TopLevel()' >> "${JAMFILE}"
+echo '        {' >> "${JAMFILE}"
+echo '            Vars.SDL_SOURCES.Assign(' >> "${JAMFILE}"
+
+# Strip trailing comma from last entry
+echo "${SOURCES:0:-1}" >> "${JAMFILE}"
+
+echo '            );' >> "${JAMFILE}"
+echo '        }' >> "${JAMFILE}"
+echo '    }' >> "${JAMFILE}"
+echo '}' >> "${JAMFILE}"
