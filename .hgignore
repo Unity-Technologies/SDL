@@ -5,11 +5,16 @@ config.cache
 config.log
 config.status
 Makefile
-sdl-config
+sdl2-config*
 SDL2.spec
 build
 gen
 Build
+Makefile.rules
+libtool
+
+# Unity
+deploy
 
 # for Xcode
 *.orig
@@ -58,7 +63,7 @@ VisualC/visualtest/testsprite2_sample.parameters
 # for Android
 android-project/local.properties
 
-sdl.pc
+sdl2.pc
 test/autom4te*
 test/config.cache
 test/config.log
