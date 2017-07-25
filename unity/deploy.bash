@@ -54,6 +54,7 @@ done
 # Write license information
 cp "${SDL_BASE}/unity/LICENSE.txt" "${DEPLOY}"
 cat "${SDL_BASE}/COPYING.txt" >> "${DEPLOY}/LICENSE.txt"
+cat "${SDL_BASE}/unity/wayland/COPYING.txt" >> "${DEPLOY}/LICENSE.txt"
 
 # Generate jamfiles
 echo "Generating jamfiles"
