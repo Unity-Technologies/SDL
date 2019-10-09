@@ -1,0 +1,33 @@
+Doing a new source deployment:
+
+* configure and build locally:
+   
+    ./configure --disable-audio --disable-shared --disable-dbus --enable-wayland-shared
+    make clean
+    make
+
+* verify that sources.list is up to date and that there's nothing new in there you don't want:
+
+    mv ./unity/sources.list ./unity/sources.list.old
+    ./unity/find-src.sh > ./unity/sources.list
+    diff ./unity/sources.list.old ./unity/sources.list
+
+* if there is extra cruft in there you want to omit, add them to the blacklist in `./unity/find-src.sh` and repeat the above step
+
+* generate the files that will be copied into External (outputted in `./deploy`):
+
+    ./unity/deploy.bash
+
+* copy the contents of the `./deploy` directory into External/SDL2 in your Unity clone:
+
+    rm -rf <your branch>/External/SDL2/src <your branch>/External/SDL2/include
+    cp -r ./deploy/* <your branch>/External/SDL2/
+
+* verify Linux Player build:
+
+    cd <your branch>
+    ./jam LinuxPlayer
+
+
+Deploying for a new platform:
+* coordinate with Levi :-)
